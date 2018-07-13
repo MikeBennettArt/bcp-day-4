@@ -14,10 +14,9 @@
     <h1>This is an App.</h1>
     <main>
         <p>
-            <select>
-                <option>dogs</option>
-                <option>cats</option>
-            </select>
+            <label>Number:
+            <input id="number">
+            </label>
         </p>
         <label>
         <input name="power" type="radio"> Square
@@ -26,32 +25,30 @@
         <input name="power" type="radio"> Cube
     </label>
     <label>
-        <input name="power" type="radio"> Quadratic
+        <input name="power" type="radio"> Tesseract
     </label>
-    </main>
-        <p>
-                <label>Name:
-                    <input id="name">
-                </label>
-        </p>
+</main>
+
+        <p id="result"></p>
     <script>
         console.log('hello world')
     </script>
     </main>
     <p>
-            <button onclick="showName()">Boop!</button>
+            <button onclick="calc()">Calculate!</button>
         </p>
     <script>
 
-        function count() {
-            for(var i = 0; i < 10; i++) {
-                console.log(i + 1);
-            }
-        }
-        function showName() {
-            var input = document.getElementById('name');
-            var name = input.value;
-            console.log(name);
+        function calc() {
+            var p = document.getElementById('number');
+            var input = document.getElementById('number');
+            var radio = document.querySelector('input[name=power]:checked');
+
+            var number = input.value;
+            var power = radio.value;
+            var result = number ** power;
+
+            p.innerText = number + ' to the ' + power + ' is ' + result
         }
     </script>
 </body>
