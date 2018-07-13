@@ -12,16 +12,12 @@
 </head>
 <body>
     <h1>This is an App.</h1>
-
     <main>
         <p>
             <select>
                 <option>dogs</option>
                 <option>cats</option>
             </select>
-        </p>
-        <p>
-            <button>Boop!</button>
         </p>
         <label>
         <input name="power" type="radio"> Square
@@ -33,16 +29,30 @@
         <input name="power" type="radio"> Quadratic
     </label>
     </main>
-
+        <p>
+                <label>Name:
+                    <input id="name">
+                </label>
+        </p>
     <script>
         console.log('hello world')
     </script>
-
+    </main>
+    <p>
+            <button onclick="showName()">Boop!</button>
+        </p>
     <script>
-            //this is a comment to show branch
+
+        function count() {
             for(var i = 0; i < 10; i++) {
                 console.log(i + 1);
             }
+        }
+        function showName() {
+            var input = document.getElementById('name');
+            var name = input.value;
+            console.log(name);
+        }
     </script>
 </body>
 </html>
