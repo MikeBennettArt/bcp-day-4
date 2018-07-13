@@ -3,53 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>App Time</title>
     <style>
         label {
             cursor: pointer;
         }
+        button {
+            background: lightsteelblue;
+        }
+        .big-number {
+            background: steelblue;
+            color: white;
+            font-family: fantasy;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <h1>This is an App.</h1>
+    <h1>Just an App</h1>
     <main>
         <p>
-            <label>Number:
-            <input id="number">
+            <label>
+                Number:
+                <input type="number" id="number">
             </label>
         </p>
-        <label>
-        <input name="power" type="radio"> Square
-    </label>
-    <label>
-        <input name="power" type="radio"> Cube
-    </label>
-    <label>
-        <input name="power" type="radio"> Tesseract
-    </label>
-</main>
 
-        <p id="result"></p>
-    <script>
-        console.log('hello world')
-    </script>
-    </main>
-    <p>
-            <button onclick="calc()">Calculate!</button>
+        <p>
+            <label>
+                <input name="power" type="radio" value="2"> Square
+            </label>
+            <label>
+                <input name="power" type="radio" value="3"> Cube
+            </label>
+            <label>
+                <input name="power" type="radio" value="4"> Tesseract
+            </label>
         </p>
-    <script>
 
+        <p>
+            <button onclick="calc()">click me</button>
+        </p>
+
+        <p id="result">Enter a number and a power to begin!</p>
+    </main>
+
+    <script>
         function calc() {
-            var p = document.getElementById('number');
+            var p = document.getElementById('result');
             var input = document.getElementById('number');
             var radio = document.querySelector('input[name=power]:checked');
-
+            
             var number = input.value;
             var power = radio.value;
             var result = number ** power;
-
-            p.innerText = number + ' to the ' + power + ' is ' + result
+            
+            p.innerHTML = number + ' to the ' + power + ' is <strong>' + result + '</strong>';
+            if(result > 2500) {
+                p.classList.add('big-number');
+            }
+            else {
+                p.classList.remove('big-number');
+            }   
+            
         }
     </script>
+
 </body>
 </html>
